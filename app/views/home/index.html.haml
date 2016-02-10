@@ -1,0 +1,29 @@
+.container
+  .row
+    - @team.each do |team|
+      .col-md-4
+        %table.table.table-hover.table-striped
+          %tr.info
+            %th.text-center{:colspan =>"2"}= team.name.upcase
+          - if team.players.present?
+            - team.players.each do |player|
+              %tr.warning
+                %td= player.name.capitalize
+                %td.text-right
+                  %i.fa.fa-inr
+                  = player.score
+          - else
+            %tr.danger
+              %td.text-center
+                No Players to display
+          %tr.info
+            %th{:colspan =>"2"}              
+              .pull-left
+                Total Amount
+              .pull-right 
+                %i.fa.fa-inr
+                = team.score
+
+      
+    
+
