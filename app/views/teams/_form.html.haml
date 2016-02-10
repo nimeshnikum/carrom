@@ -6,10 +6,10 @@
         - @team.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :name
     = f.text_field :name
-  .field
+  .form-group
     = f.label :score
     = f.text_field :score
   .actions

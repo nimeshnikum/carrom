@@ -1,8 +1,14 @@
 %nav.navbar.navbar-default{role: "navigation"}
   .container
-    .navbar-header            
+    .pull-left
       %a.navbar-brand{href: "#{root_path}"}         
         %i.fa.fa-flag
         Carrom League Auction
-      
+
+    .pull-right
+      %button.btn.btn-primary.available_players{:type => "button", :style =>"margin-top: 7px;"}
+        Available Players 
+        %span.badge= @available_players 
+
+    
 

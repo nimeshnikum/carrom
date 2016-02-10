@@ -6,17 +6,17 @@
         - @player.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :name
     = f.text_field :name
-  .field
+  .form-group
     = f.label :score
     = f.text_field :score
-  .field
+  .form-group
     = f.label :team_id
     = f.text_field :team_id
-  .field
+  .form-group
     = f.label :image
     = f.text_field :image
-  .actions
+  .form-group
     = f.submit 'Save'
