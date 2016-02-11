@@ -5,6 +5,7 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @players = Player.all
+    @available_players = Player.available_players
   end
 
   # GET /players/1
@@ -15,6 +16,7 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
+    @available_players = Player.available_players
   end
 
   # GET /players/1/edit
@@ -28,8 +30,8 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, notice: 'Player was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @player }
+        format.html { redirect_to new_player_path, notice: 'Player was successfully created.' }
+        format.json { render action: 'index', status: :created, location: @player }
       else
         format.html { render action: 'new' }
         format.json { render json: @player.errors, status: :unprocessable_entity }
