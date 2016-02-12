@@ -4,5 +4,4 @@ class Team < ActiveRecord::Base
   def total_amount
     self.score - (self.players.map { |x| x.score }.sum)
   end
-
 end

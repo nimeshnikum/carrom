@@ -1,14 +1,20 @@
 %nav.navbar.navbar-default{role: "navigation"}
   .container
     .pull-left
-      %a.navbar-brand{href: "#{root_path}"}         
+      %a.navbar-brand.text-uppercase{href: "#{root_path}"}         
         %i.fa.fa-flag
-        Carrom League Auction
+        Carrom League
 
     .pull-right
-      %button.btn.btn-primary.available_players{:type => "button", :style =>"margin-top: 7px;"}
-        Available Players 
-        %span.badge= @available_players 
+      .menu{:style =>"margin-top: 7px;"}
+        .btn.btn-primary
+          Team List
+        .btn.btn-primary
+          Match Rules
+      .hide
+        %button.btn.btn-primary.available_players{:type => "button", :style =>"margin-top: 7px;"}
+          Available Players 
+          %span.badge= @available_players 
 
     
 
