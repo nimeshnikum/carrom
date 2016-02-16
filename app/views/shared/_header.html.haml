@@ -7,14 +7,8 @@
 
     .pull-right
       .menu{:style =>"margin-top: 7px;"}
-        .btn.btn-primary
-          Team List
-        .btn.btn-primary
-          Match Rules
-      .hide
-        %button.btn.btn-primary.available_players{:type => "button", :style =>"margin-top: 7px;"}
-          Available Players 
-          %span.badge= @available_players 
-
+        - if !(params[:controller] == "home" && params[:action] == "index")
+          = link_to "Team list", team_list_path, :class => "btn btn-primary"
+          = link_to "Rules", rules_path, :class => "btn btn-primary"
     
 

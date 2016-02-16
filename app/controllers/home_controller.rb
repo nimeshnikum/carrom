@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @available_players = Player.available_players
+    
+  end
+
+  def team_list
+    #@available_players = Player.available_players
     @team = Team.order('id ASC')
   end
 

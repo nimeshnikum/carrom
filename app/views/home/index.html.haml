@@ -1,45 +1,22 @@
 .container
-  .row
-    - @team.each do |team|
-      .col-md-4
-        %table.table.table-hover.table-striped
-          %tr.info
-            %th.text-center{:colspan =>"3"}= team.name.upcase
-          - if team.players.present?
-            - team.players.each_with_index do |player, index|
-              %tr.warning
-                %td= index+1
-                %td= player.name.capitalize
-                %td.text-right
-                  %i.fa.fa-inr
-                  = player.score
-          - else
-            %tr.danger
-              %td.text-center
-                No Players to display
-          %tr.info
-            %th{:colspan =>"3"}              
-              .pull-left
-                Total Amount
-              .pull-right 
-                %i.fa.fa-inr
-                = team.total_amount
+  .row.home-bt
+    .col-md-offset-2
+      .col-md-5
+        %a.btn.btn-primary.home-btn{:href => "#{team_list_path}"}
+          %i.fa.fa-users
+          Team list
+      .col-md-5
+        %a.btn.btn-primary.home-btn{:href => "#{rules_path}"}
+          %i.fa.fa-bars
+          Rules
+      .divider
+      .col-md-5
+        %a.btn.btn-primary.home-btn{:href => "#"}
+          %i.fa.fa-bullhorn
+          Matches
 
-      
-    
-
-/ Modal
-#select.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog.modal-lg{:role => "document"}
-    .modal-content
-      .modal-header
-        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} &times;
-        %h4#myModalLabel.modal-title Player details
-      .modal-body.text-center
-        .player-content
-          = link_to "Show Player", show_player_path, {'class' => "btn btn-primary show_player", 'data-remote' => true, 'id' => "show_player"}
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-
+      .col-md-5
+        %a.btn.btn-primary.home-btn{:href => "#"}
+          %i.fa.fa-archive
+          Results
 
