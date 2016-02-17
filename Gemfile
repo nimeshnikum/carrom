@@ -14,6 +14,7 @@ gem 'sprockets'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
+gem 'rails_12factor', group: :production
 
 group :test, :development do
   gem "pry"
