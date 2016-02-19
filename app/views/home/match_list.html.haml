@@ -5,16 +5,14 @@
         - @matches.each_with_index do |m, index|          
           - if !m[0].empty?
             %tr.info
-              %td(colspan="4")
+              %td(colspan="6")
                 %b= m[0]
 
           %tr.warning
-            %td(rowspan="2")= m[1]
-            %td= m[2]
-            %td Vs 
-            %td= m[3]          
-          %tr.white-bg
-            %td= m[4]
-            %td Vs 
-            %td= m[5]
+            %td= m[1]
+            %td.text-right= m[2]  
+            %td.text-left= m[4]
+            %td.text-left Vs 
+            %td.text-right= m[3]
+            %td.text-left= m[5]
         
