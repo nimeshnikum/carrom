@@ -2,10 +2,11 @@
   .row
     .col-md-12
       %table.table.table-hover.text-center
-        - @matches.each do |m|          
+        - @matches.each_with_index do |m, index|          
           - if !m[0].empty?
             %tr.info
-              %td(colspan="4")= m[0]
+              %td(colspan="4")
+                %b= m[0]
 
           %tr.t-color
             %td(rowspan="2")= m[1]

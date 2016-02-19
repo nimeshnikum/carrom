@@ -23,14 +23,14 @@ class HomeController < ApplicationController
   def match_list
     @matches = [
       ['Monday 22-02-2016', "Match 1", "Dynamics", "Croods", "Sumesh and Sandesh", "Ashwin and Ravindhran"],
-      ['Monday 22-02-2016', "Match 2", "Croods", "Crackers", "Shijo and Kannan", "Ashwin and Ravindhran"],
-      ['Monday 22-02-2016', "Match 3", "Crackers", "Dynamics", "Sathya and Krishnaveni", "Srihari and Srikanth"],
+      ['', "Match 2", "Croods", "Crackers", "Shijo and Kannan", "Ashwin and Ravindhran"],
+      ['', "Match 3", "Crackers", "Dynamics", "Sathya and Krishnaveni", "Srihari and Srikanth"],
       ['Tuesday 23-02-2016', "Match 4", "Dynamics", "Crackers", "Vikram and Partha", "Ankur and Sowmya"],
-      ['Tuesday 23-02-2016', "Match 5", "Dynamics", "Croods", "Anoop and Vinaya", "Vinayak and Ravindhran"],
-      ['Tuesday 23-02-2016', "Match 6", "Crackers", "Croods", "Vaishakh and Shashi", "Sudhakar and Vaishnavi"],
+      ['', "Match 5", "Dynamics", "Croods", "Anoop and Vinaya", "Vinayak and Ravindhran"],
+      ['', "Match 6", "Crackers", "Croods", "Vaishakh and Shashi", "Sudhakar and Vaishnavi"],
       ['Friday 26-02-2016', "Match 7", "Crackers", "Croods", "Sathya and Jaydip", "Sudhakar and Vaishnavi"],
-      ['Friday 26-02-2016', "Match 8", "Crackers", "Dynamics", "Vaishakh and Johnson", "Prasad and Srikanth"],
-      ['Friday 26-02-2016', "Match 9", "Dynamics", "Croods", "Vinaya and Prasad", "Kannan and Ashwin"]
+      ['', "Match 8", "Crackers", "Dynamics", "Vaishakh and Johnson", "Prasad and Srikanth"],
+      ['', "Match 9", "Dynamics", "Croods", "Vinaya and Prasad", "Kannan and Ashwin"]
     ]
   end
 
