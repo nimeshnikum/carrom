@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-md-12
+      %table.table.table-hover.text-center
+        - @matches.each do |m|          
+          - if !m[0].empty?
+            %tr.info
+              %td(colspan="4")= m[0]
+
+          %tr.t-color
+            %td(rowspan="2")= m[1]
+            %td= m[2]
+            %td Vs 
+            %td= m[3]          
+          %tr.white-bg
+            %td= m[4]
+            %td Vs 
+            %td= m[5]
+        
