@@ -23,7 +23,7 @@ class HomeController < ApplicationController
   def match_list
     @matches = [
       ['Monday 22-02-2016', "Match 1", "Dynamics", "Croods", "Sumesh and Sandesh", "Ashwin and Ravindhran"],
-      ['', "Match 2", "Croods", "Crackers", "Shijo and Kannan", "Ashwin and Ravindhran"],
+      ['', "Match 2", "Croods", "Crackers", "Shijo and Kannan", "Shashi and Johnson"],
       ['', "Match 3", "Crackers", "Dynamics", "Sathya and Krishnaveni", "Srihari and Srikanth"],
       ['Tuesday 23-02-2016', "Match 4", "Dynamics", "Crackers", "Vikram and Partha", "Ankur and Sowmya"],
       ['', "Match 5", "Dynamics", "Croods", "Anoop and Vinaya", "Vinayak and Ravindhran"],
