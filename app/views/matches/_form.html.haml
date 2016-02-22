@@ -1,0 +1,43 @@
+= form_for @match do |f|
+  - if @match.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@match.errors.count, "error")} prohibited this match from being saved:"
+      %ul
+        - @match.errors.full_messages.each do |msg|
+          %li= msg
+
+  .row
+    .col-md-2
+      = f.label :match_no
+      = f.text_field :match_no
+    .col-md-2
+      = f.label :match_date
+      = f.text_field :match_date, { :data => { :provide => 'datepicker' }}
+  %br
+  .row
+    .col-md-2
+      = f.label :team1_id
+      = f.select(:team1_id,  @team.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control team1"})
+    .col-md-2
+      = f.label :player1
+      = f.select(:player1,  @player.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control"})
+    .col-md-2
+      = f.label :player2
+      = f.select(:player2,  @player.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control"})
+ 
+    .col-md-2
+      = f.label :team2_id
+      = f.select(:team2_id,  @team.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control"})
+    .col-md-2
+      = f.label :player3
+      = f.select(:player3,  @player.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control"})
+    .col-md-2
+      = f.label :player4
+      = f.select(:player4,  @player.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control"})
+  .row
+    .col-md-2
+      %br
+      = f.submit 'Save'
+  .clearfix
+  %br
+  

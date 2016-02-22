@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'rails_12factor', group: :production
+gem 'bootstrap-datepicker-rails'
 
 group :test, :development do
   gem "pry"

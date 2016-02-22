@@ -2,17 +2,23 @@
   .row
     .col-md-12
       %table.table.table-hover.text-center
-        - @matches.each_with_index do |m, index|          
-          - if !m[0].empty?
+        - @matches.each.with_index do |match, index|          
+          - if [0,2,5].include?(index)
             %tr.info
               %td(colspan="6")
-                %b= m[0]
-
+                %b= Date.parse(match.match_date).strftime('%A %d-%m-%Y')        
           %tr.warning
-            %td= m[1]
-            %td.text-right= m[2]  
-            %td.text-left= m[4]
+            %td
+              Match
+              = match.match_no
+            %td.text-right= match.team1.name
+            %td.text-left
+              = match.player_1.try(:name)
+              and
+              = match.player_2.try(:name)
             %td.text-left Vs 
-            %td.text-right= m[3]
-            %td.text-left= m[5]
-        
+            %td.text-right= match.team1.name
+            %td.text-left
+              = match.player_3.try(:name)
+              and
+              = match.player_4.try(:name)

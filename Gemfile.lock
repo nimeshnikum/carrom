@@ -40,6 +40,8 @@ GEM
     autoprefixer-rails (6.3.1)
       execjs
       json
+    bootstrap-datepicker-rails (1.5.0)
+      railties (>= 3.0)
     bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -169,6 +171,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-datepicker-rails
   bootstrap-sass
   font-awesome-rails
   haml-rails
