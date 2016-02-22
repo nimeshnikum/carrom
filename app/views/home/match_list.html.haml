@@ -3,7 +3,7 @@
     .col-md-12
       %table.table.table-hover.text-center
         - @matches.each.with_index do |match, index|          
-          - if [0,2,5].include?(index)
+          - if [0,3,6].include?(index)
             %tr.info
               %td(colspan="6")
                 %b= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')

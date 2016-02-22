@@ -21,7 +21,7 @@ class HomeController < ApplicationController
   end
 
   def match_list
-    @matches = Match.all
+    @matches = Match.order(match_no: :asc)
   end
 
   def player_params
