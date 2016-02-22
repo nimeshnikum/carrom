@@ -24,6 +24,11 @@ class HomeController < ApplicationController
     @matches = Match.order(match_no: :asc)
   end
 
+  def results
+    @matches = Match.order(match_no: :asc)
+    @teams = Team.all
+  end
+
   def player_params
     params.require(:player).permit(:name, :score, :team_id, :image)
   end

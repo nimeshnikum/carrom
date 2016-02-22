@@ -1,0 +1,51 @@
+.container
+  .row
+    .col-md-12
+      .well.text-uppercase 
+        %b Results by match
+      %table.table.table-hover.text-center
+        - @matches.each.with_index do |match, index|                
+          - if match.winning_team_id.present?
+            %tr.info
+              %td Match date
+              %td Match no
+              %td Teams 1
+              %td Teams 2
+              %td Winning team
+              %td Queen holder
+
+            %tr.warning
+              %td= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
+              %td
+                Match
+                = match.match_no
+              %td
+                = match.player_1.try(:name)
+                and
+                = match.player_2.try(:name)
+                \-
+                = match.team1.name              
+              %td
+                = match.player_3.try(:name)
+                and
+                = match.player_4.try(:name)
+                \-
+                = match.team2.name
+              %td
+              %td
+      .well.text-uppercase 
+        %b Results by team
+        %br 
+        %br
+        %table.table.table-hover.text-center
+          %tr.info
+            %td Team name
+            %td total Match points
+            %td total board points
+
+          - @teams.each do |team|                
+            %tr.info
+              %td= team.name
+              %td
+              %td
+
