@@ -6,7 +6,7 @@
           - if [0,2,5].include?(index)
             %tr.info
               %td(colspan="6")
-                %b= Date.parse(match.match_date).strftime('%A %d-%m-%Y')        
+                %b= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
           %tr.warning
             %td
               Match
