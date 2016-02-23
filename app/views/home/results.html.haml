@@ -6,12 +6,12 @@
         %br
         %br
         %table.table.table-hover.text-center
-          %tr.info
+          %tr.info.text-bold
             %td Match date
             %td Match no
             %td Teams 1
             %td Teams 2
-            %td Winning team
+            %td team won
             %td Queen holder
           - @matches.each.with_index do |match, index|                
             - if match.winning_team_id.present?
@@ -33,13 +33,17 @@
                   \-
                   = match.team2.name
                 %td= match.winning_team.try(:name)
-                %td= match.queen_player.try(:name)
+                %td
+                  = match.queen_player.team.try(:name)
+                  (
+                  = match.queen_player.try(:name)
+                  )
       .well.white-bg
         %b.text-uppercase Results by team
         %br 
         %br
         %table.table.table-hover.text-center
-          %tr.warning
+          %tr.warning.text-bold
             %td Team name
             %td total Match points
             %td total board points
@@ -58,13 +62,17 @@
           .col-md-4
             %table.table.table-hover.table-striped
               %tr.info
-                %th.text-center{:colspan =>"3"}
-                  = team.name.upcase
+                %th.text-center{:colspan =>"3"}= team.name.upcase
+              %tr.warning
+                %th.text-left Name
+                %th.text-right Player score
+                %th.text-right Playing count
               %tr.info
               - if team.players.present?
                 - team.players.each do |player|
                   %tr.warning
                     %td= player.name.capitalize
+                    %td
                     %td.text-right= player.matches.count
               - else
                 %tr.danger
