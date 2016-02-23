@@ -10,4 +10,8 @@ class Player < ActiveRecord::Base
   def self.get_random_player
     Player.where("team_id" => nil).shuffle.first
   end
+
+  def match_count
+    MatchPlayer.where(:player_id => self.id).count
+  end
 end

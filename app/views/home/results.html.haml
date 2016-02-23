@@ -5,13 +5,13 @@
         %b Results by match
       %table.table.table-hover.text-center
         - @matches.each.with_index do |match, index|                
-            %tr.info
-              %td Match date
-              %td Match no
-              %td Teams 1
-              %td Teams 2
-              %td Winning team
-              %td Queen holder
+          %tr.info
+            %td Match date
+            %td Match no
+            %td Teams 1
+            %td Teams 2
+            %td Winning team
+            %td Queen holder
           - if match.winning_team_id.present?
             %tr.warning
               %td= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
@@ -47,4 +47,46 @@
               %td= team.name
               %td= team.match_points
               %td
+        
+      .well.text-uppercase 
+        %b Results by Players
+      .col-md-12
+        - @team.each do |team|
+          .col-md-4
+            %table.table.table-hover.table-striped
+              %tr.info
+                %th.text-center{:colspan =>"3"}
+                  = team.name.upcase
+                  (Owners)
+              - if team.players.present?
+                - index = 0
+                - team.players.each do |player|
+                  - if player.score == 0 
+                    - index = index + 1
+                    %tr.warning
+                      %td= index
+                      %td= player.name.capitalize
+                      %td.text-right
+                        = player.match_count                    
+              %tr.info
+                %th.text-center{:colspan =>"3"}
+                  = team.name.upcase
+                  (Players)
+              - if team.players.present?
+                - index = 0
+                - team.players.each do |player|
+                  - if player.score != 0
+                    - index = index + 1
+                    %tr.warning
+                      %td= index
+                      %td= player.name.capitalize
+                      %td.text-right
+                        = player.match_count
+              - else
+                %tr.danger
+                  %td.text-center
+                    No Players to display
+              %tr.info
+                %th{:colspan =>"3"}              
 
+        .clearfix

@@ -26,6 +26,7 @@ class HomeController < ApplicationController
 
   def results
     @matches = Match.order(match_no: :asc)
+    @team = Team.order('id ASC')
     @teams = Team.all
   end
 
