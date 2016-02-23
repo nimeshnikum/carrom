@@ -67,7 +67,7 @@
                       %td= index
                       %td= player.name.capitalize
                       %td.text-right
-                        = player.match_count                    
+                        = player.matches.count                    
               %tr.info
                 %th.text-center{:colspan =>"3"}
                   = team.name.upcase
@@ -81,7 +81,7 @@
                       %td= index
                       %td= player.name.capitalize
                       %td.text-right
-                        = player.match_count
+                        = player.matches.count
               - else
                 %tr.danger
                   %td.text-center
