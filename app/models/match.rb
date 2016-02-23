@@ -33,7 +33,7 @@ class Match < ActiveRecord::Base
   end
 
   def queen_holder
-    Player.find(self.queen_player_id)
+    Player.find(self.queen_player_id) || ""
   end
 
 end

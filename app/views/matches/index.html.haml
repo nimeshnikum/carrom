@@ -30,7 +30,7 @@
           and
           = match.player_4.try(:name)
         %td= match.winning_team.try(:name)
-        %td= #match.try(:queen_holder).try(:name)
+        %td= match.queen_holder.try(:name)
         %td= link_to 'Update score', edit_match_path(match)
         %td= link_to 'Destroy', match, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

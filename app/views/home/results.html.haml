@@ -31,8 +31,8 @@
                 = match.player_4.try(:name)
                 \-
                 = match.team2.name
-              %td
-              %td
+              %td= match.winning_team.try(:name)
+              %td= match.queen_holder.try(:name)
       .well.text-uppercase 
         %b Results by team
         %br 
