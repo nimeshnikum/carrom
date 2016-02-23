@@ -1,43 +1,45 @@
 .container
   .row
     .col-md-12
-      .well.text-uppercase 
-        %b Results by match
-      %table.table.table-hover.text-center
-        %tr.info
-          %td Match date
-          %td Match no
-          %td Teams 1
-          %td Teams 2
-          %td Winning team
-          %td Queen holder
-        - @matches.each.with_index do |match, index|                
-          - if match.winning_team_id.present?
-            %tr.warning
-              %td= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
-              %td
-                Match
-                = match.match_no
-              %td
-                = match.player_1.try(:name)
-                and
-                = match.player_2.try(:name)
-                \-
-                = match.team1.name              
-              %td
-                = match.player_3.try(:name)
-                and
-                = match.player_4.try(:name)
-                \-
-                = match.team2.name
-              %td= match.winning_team.try(:name)
-              %td= match.queen_player.try(:name)
-      .well.text-uppercase 
-        %b Results by team
-        %br 
+      .well.white-bg
+        %b.text-uppercase  Results by match
+        %br
         %br
         %table.table.table-hover.text-center
           %tr.info
+            %td Match date
+            %td Match no
+            %td Teams 1
+            %td Teams 2
+            %td Winning team
+            %td Queen holder
+          - @matches.each.with_index do |match, index|                
+            - if match.winning_team_id.present?
+              %tr.warning
+                %td= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
+                %td
+                  Match
+                  = match.match_no
+                %td
+                  = match.player_1.try(:name)
+                  and
+                  = match.player_2.try(:name)
+                  \-
+                  = match.team1.name              
+                %td
+                  = match.player_3.try(:name)
+                  and
+                  = match.player_4.try(:name)
+                  \-
+                  = match.team2.name
+                %td= match.winning_team.try(:name)
+                %td= match.queen_player.try(:name)
+      .well.white-bg
+        %b.text-uppercase Results by team
+        %br 
+        %br
+        %table.table.table-hover.text-center
+          %tr.warning
             %td Team name
             %td total Match points
             %td total board points
@@ -48,40 +50,22 @@
               %td= team.match_points
               %td
         
-      .well.text-uppercase 
-        %b Results by Players
-      .col-md-12
+      .well.white-bg
+        %b.text-uppercase  Results by Players
+        %br
+        %br
         - @team.each do |team|
           .col-md-4
             %table.table.table-hover.table-striped
               %tr.info
                 %th.text-center{:colspan =>"3"}
                   = team.name.upcase
-                  (Owners)
-              - if team.players.present?
-                - index = 0
-                - team.players.each do |player|
-                  - if player.score == 0 
-                    - index = index + 1
-                    %tr.warning
-                      %td= index
-                      %td= player.name.capitalize
-                      %td.text-right
-                        = player.matches.count                    
               %tr.info
-                %th.text-center{:colspan =>"3"}
-                  = team.name.upcase
-                  (Players)
               - if team.players.present?
-                - index = 0
                 - team.players.each do |player|
-                  - if player.score != 0
-                    - index = index + 1
-                    %tr.warning
-                      %td= index
-                      %td= player.name.capitalize
-                      %td.text-right
-                        = player.matches.count
+                  %tr.warning
+                    %td= player.name.capitalize
+                    %td.text-right= player.matches.count
               - else
                 %tr.danger
                   %td.text-center
