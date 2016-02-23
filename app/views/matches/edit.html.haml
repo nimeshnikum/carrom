@@ -1,8 +1,48 @@
 .well.text-uppercase Editing match
 
-= render 'form'
+%table.table.table-striped
+  %thead
+    %tr
+      %th Match no
+      %th Match date
+      %th Team
+      %th Team1 Players
+      %th Team2 Players
+
+  %tbody
+    %tr
+      %td= @match.match_no
+      %td= @match.match_date
+      %td
+        = @match.team1.name
+        Vs
+        = @match.team2.name
+      %td
+        = @match.player_1.try(:name)
+        and
+        = @match.player_2.try(:name)
+      %td
+        = @match.player_3.try(:name)
+        and
+        = @match.player_4.try(:name)
+
+= form_for @match do |f|
+  - if @match.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@match.errors.count, "error")} prohibited this match from being saved:"
+      %ul
+        - @match.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .col-md-2
+      = f.label :winning_team
+      = f.select(:winning_team,  @match.teams.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control team1"})
+    .col-md-2
+      = f.label :queen_player      
+      = f.select(:queen_player,  @match.match_players.collect {|p| [ p.player.name, p.player.id ] }, {}, {:class => "form-control"})
+    .col-md-2
+      %br     
+      = f.submit 'Update'
 
 %br
-= link_to 'Show', @match
-\|
 = link_to 'Back', matches_path

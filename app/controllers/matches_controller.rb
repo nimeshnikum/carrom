@@ -45,7 +45,7 @@ class MatchesController < ApplicationController
   # PATCH/PUT /matches/1.json
   def update
     respond_to do |format|
-      if @match.update(match_params)
+      if @match.update_attributes(:winning_team_id => params["match"]["winning_team"], :queen_player_id => params["match"]["queen_player"])
         format.html { redirect_to matches_path, notice: 'Match was successfully updated.' }
         format.json { head :no_content }
       else
