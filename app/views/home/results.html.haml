@@ -5,7 +5,6 @@
         %b Results by match
       %table.table.table-hover.text-center
         - @matches.each.with_index do |match, index|                
-          - if match.winning_team_id.present?
             %tr.info
               %td Match date
               %td Match no
@@ -13,7 +12,7 @@
               %td Teams 2
               %td Winning team
               %td Queen holder
-
+          - if match.winning_team_id.present?
             %tr.warning
               %td= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
               %td
