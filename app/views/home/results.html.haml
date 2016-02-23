@@ -31,7 +31,7 @@
                 \-
                 = match.team2.name
               %td= match.winning_team.try(:name)
-              %td= match.queen_holder.try(:name)
+              %td= match.queen_player.try(:name)
       .well.text-uppercase 
         %b Results by team
         %br 
@@ -87,6 +87,5 @@
                   %td.text-center
                     No Players to display
               %tr.info
-                %th{:colspan =>"3"}              
-
+                %th{:colspan =>"3"}
         .clearfix

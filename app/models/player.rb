@@ -1,5 +1,6 @@
 class Player < ActiveRecord::Base
   belongs_to :team
+
   has_many :matches,  :through => :match_players
   has_many :match_players, dependent: :destroy
 
