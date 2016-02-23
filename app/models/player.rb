@@ -1,6 +1,6 @@
 class Player < ActiveRecord::Base
   belongs_to :team
-  has_many :matches,  :through => :match_player
+  has_many :matches,  :through => :match_players
   has_many :match_players, dependent: :destroy
 
   def self.available_players
@@ -9,9 +9,5 @@ class Player < ActiveRecord::Base
 
   def self.get_random_player
     Player.where("team_id" => nil).shuffle.first
-  end
-
-  def match_count
-    MatchPlayer.where(:player_id => self.id).count
   end
 end
