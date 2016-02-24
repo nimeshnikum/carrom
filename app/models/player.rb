@@ -13,7 +13,7 @@ class Player < ActiveRecord::Base
   end
 
   def matches_count
-    self.queens.count
+    self.matches.count
   end
 
   def queen_count
