@@ -8,10 +8,10 @@
       %th Team
       %th Team1 Players
       %th Team2 Players
-      %th Winning team
+      %th Team won
       %th Queen holder
       %th Board points
-      %th(colspan=2)
+      %th(colspan=2) Update score
 
   %tbody
     - @matches.each do |match|
@@ -33,9 +33,9 @@
         %td= match.winning_team.try(:name)
         %td= match.queen_player.try(:name)
         %td= match.board_points
-        %td= link_to 'Update score', edit_match_path(match)
-        %td= link_to 'Destroy', match, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+        %td= link_to 'Player', match_player_edit_path(match)
+        %td= link_to 'Match', edit_match_path(match)
+        %td= link_to '', match, :class => "fa fa-times", :method => :delete, :data => { :confirm => 'Are you sure?' }
 %br
 
 = link_to 'New Match', new_match_path

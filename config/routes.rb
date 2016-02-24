@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :players
   resources :teams
-  resources :matches
+  resources :matches do
+    get 'player_edit', to: 'matches#player_edit', as: 'player_edit'
+  end
 
   get 'show_player', to: 'home#show_player', as: 'show_player'
   get 'match_list', to: 'home#match_list', as: 'match_list'

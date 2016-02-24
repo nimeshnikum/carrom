@@ -58,6 +58,11 @@ class MatchesController < ApplicationController
     end
   end
 
+  def player_edit
+    @match = Match.find(params[:match_id])
+  end
+
+
   # DELETE /matches/1
   # DELETE /matches/1.json
   def destroy
