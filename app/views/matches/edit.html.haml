@@ -46,7 +46,7 @@
       = f.select(:queen_player,  @match.match_players.collect {|p| [ p.player.name, p.player.id ] }, {}, {:class => "form-control"})
     .col-md-2
       = f.label :board_points      
-      = f.select(:board_points,  [*1..12].map {|p| p }, {}, {:class => "form-control"})
+      = f.select(:board_points,  [*0..12].map {|p| p }, {}, {:class => "form-control"})
     .col-md-2
       = f.label :comments
       = f.text_field(:comments, {:class => "form-control"})

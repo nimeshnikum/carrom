@@ -10,6 +10,7 @@
       %th Team2 Players
       %th Winning team
       %th Queen holder
+      %th Board points
       %th(colspan=2)
 
   %tbody
@@ -31,6 +32,7 @@
           = match.player_4.try(:name)
         %td= match.winning_team.try(:name)
         %td= match.queen_player.try(:name)
+        %td= match.board_points
         %td= link_to 'Update score', edit_match_path(match)
         %td= link_to 'Destroy', match, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
