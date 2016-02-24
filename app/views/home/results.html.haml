@@ -51,8 +51,8 @@
           - @teams.each do |team|                
             %tr.info              
               %td= team.name
-              %td= team.match_points
-              %td= team.board_points
+              %td= hypen(team.match_points)
+              %td= hypen(team.board_points)
         
       .well.white-bg
         %b.text-uppercase  Results by Players
@@ -70,9 +70,9 @@
           - @players.each do |player|
             %tr.warning
               %td= player.name.capitalize
-              %td.text-right= player.matches.count
-              %td
-              %td
-              %td
-              %td
-              %td
+              %td.text-center= hypen(player.matches_count)
+              %td.text-center= hypen(player.queen_count)
+              %td.text-center= hypen(player.coin_count)
+              %td.text-center= hypen(player.op_coin_count)
+              %td.text-center= hypen(player.due_count)
+              %td.text-center= hypen(player.player_score)
