@@ -8,6 +8,8 @@
       %th Team
       %th Team1 Players
       %th Team2 Players
+      %th Winning team
+      %th Queen holder
 
   %tbody
     %tr
@@ -25,6 +27,8 @@
         = @match.player_3.try(:name)
         and
         = @match.player_4.try(:name)
+      %td= @match.winning_team.try(:name)
+      %td= @match.queen_player.try(:name)
 
 = form_for @match do |f|
   - if @match.errors.any?
@@ -36,10 +40,16 @@
   .row
     .col-md-2
       = f.label :winning_team
-      = f.select(:winning_team,  @match.teams.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control team1"})
+      = f.select(:winning_team,  options_for_select(@match.teams.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control team1"})
     .col-md-2
       = f.label :queen_player      
-      = f.select(:queen_player,  @match.match_players.collect {|p| [ p.player.name, p.player.id ] }, {}, {:class => "form-control"})
+      = f.select(:queen_player,  options_for_select(@match.match_players.collect {|p| [ p.player.name, p.player.id ] }), {}, {:class => "form-control"})
+    .col-md-2
+      = f.label :board_points      
+      = f.select(:board_points,  [*1..12].map {|p| p }, {}, {:class => "form-control"})
+    .col-md-2
+      = f.label :comments
+      = f.text_field(:comments, {:class => "form-control"})
     .col-md-2
       %br     
       = f.submit 'Update'

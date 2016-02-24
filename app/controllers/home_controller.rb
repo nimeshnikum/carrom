@@ -27,7 +27,7 @@ class HomeController < ApplicationController
   def results
     @matches = Match.order(match_no: :asc)
     @teams = Team.order('id ASC')
-    @players = Player.all
+    @players = Player.order('id ASC')
   end
 
   def player_params
