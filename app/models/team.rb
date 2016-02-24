@@ -12,6 +12,6 @@ class Team < ActiveRecord::Base
   end
 
   def board_points
-    self.winning_matches.map { |x| x.board_points }.sum if self.winning_matches.present?
+    (self.winning_matches.map { |x| x.board_points })
   end
 end
