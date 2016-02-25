@@ -28,6 +28,10 @@ class Team < ActiveRecord::Base
   	win_points + queen_points
   end
 
+  def board_points
+  	won_matches.collect(&:board_points).sum
+  end
+
   def total_amount
     self.score - (self.players.map { |x| x.score }.sum)
   end
