@@ -28,7 +28,7 @@
         and
         = @match.player_4.try(:name)
       %td= @match.winning_team.try(:name)
-      %td= @match.queen_player.try(:name)
+      %td= @match.queen_holder.try(:name)
 
 = form_for @match do |f|
   - if @match.errors.any?
@@ -42,8 +42,8 @@
       = f.label :winning_team
       = f.select(:winning_team,  @match.teams.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control team1"})
     .col-md-2
-      = f.label :queen_player      
-      = f.select(:queen_player,  @match.match_players.collect {|p| [ p.player.name, p.player.id ] }, {}, {:class => "form-control"})
+      = f.label :queen_holder     
+      = f.select(:queen_holder,  @match.match_players.collect {|p| [ p.player.name, p.player.id ] }, {}, {:class => "form-control"})
     .col-md-2
       = f.label :board_points      
       = f.select(:board_points,  [*0..12].map {|p| p }, {}, {:class => "form-control"})

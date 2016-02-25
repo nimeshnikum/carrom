@@ -1,13 +1,13 @@
 .well.text-uppercase 
   %b Results by match
 %table.table.table-hover.text-center
-  %tr.info
+  %tr.info.strong
     %td Match date
     %td Match no
     %td Teams 1
     %td Teams 2
-    %td.strong Winning team
-    %td.strong Queen holder
+    %td Winning team
+    %td Queen holder
   - @matches.each.with_index do |match, index|                
     - if match.winning_team_id.present?
       %tr.warning
