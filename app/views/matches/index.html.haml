@@ -31,7 +31,7 @@
           and
           = match.player_4.try(:name)
         %td= match.winning_team.try(:name)
-        %td= match.queen_player.try(:name)
+        %td= match.queen_holder.try(:name)
         %td= match.board_points
         %td= link_to 'Player', match_player_edit_path(match)
         %td= link_to 'Match', edit_match_path(match)

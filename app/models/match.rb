@@ -4,8 +4,8 @@ class Match < ActiveRecord::Base
 
   belongs_to :team1, :class_name => 'Team', :foreign_key => 'team1_id'
   belongs_to :team2, :class_name => 'Team', :foreign_key => 'team2_id'  
-  belongs_to :winning_team, :class_name => 'Team', :foreign_key => 'winning_team_id'  
-  belongs_to :queen_player, :class_name => 'Player', :foreign_key => 'queen_player_id'
+  belongs_to :winning_team, :class_name => 'Team', :foreign_key => 'winning_team_id'
+  belongs_to :queen_holder, :class_name => 'Player', foreign_key: 'queen_player_id'
 
   attr_accessor :player1, :player2, :player3, :player4
 

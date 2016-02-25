@@ -1,0 +1,24 @@
+.well.text-uppercase 
+  %b Results by team
+  %br 
+  %br
+  %table.table.table-hover.text-center
+    %tr.info
+      %td Teams
+      %td Matches
+      %td Won
+      %td Lost
+      %td Win Points
+      %td Queen Points
+      %td.strong Total Match points
+      %td Total board points
+
+    - @teams.each do |team|                
+      %tr             
+        %td= team.name
+        %td= team.matches.count
+        %td= team.won_matches.count
+        %td= team.lost_matches.count
+        %td= team.win_points
+        %td= team.queen_points
+        %td= team.match_points

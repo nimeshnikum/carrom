@@ -34,6 +34,10 @@
     .col-md-2
       = f.label :player4
       = f.select(:player4,  @player.collect {|p| [ p.name, p.id ] }, {}, {:class => "form-control"})
+  %br
+  .row
+    = f.label :comments
+    = f.text_area :comments, :cols => 100
   .row
     .col-md-2
       %br

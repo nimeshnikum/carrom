@@ -1,59 +1,10 @@
 .container
   .row
     .col-md-12
-      .well.white-bg
-        %b.text-uppercase  Results by match
-        %br
-        %br
-        %table.table.table-hover.text-center
-          %tr.info.text-bold
-            %td Match date
-            %td Match no
-            %td Teams 1
-            %td Teams 2
-            %td team won
-            %td Queen holder
-          - @matches.each.with_index do |match, index|                
-            - if match.winning_team_id.present?
-              %tr.warning
-                %td= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
-                %td
-                  Match
-                  = match.match_no
-                %td
-                  = match.player_1.try(:name)
-                  and
-                  = match.player_2.try(:name)
-                  \-
-                  = match.team1.name              
-                %td
-                  = match.player_3.try(:name)
-                  and
-                  = match.player_4.try(:name)
-                  \-
-                  = match.team2.name
-                %td= match.winning_team.try(:name)
-                %td
-                  = match.queen_player.team.try(:name)
-                  (
-                  = match.queen_player.try(:name)
-                  )
-      .well.white-bg
-        %b.text-uppercase Results by team
-        %br 
-        %br
-        %table.table.table-hover.text-center
-          %tr.warning.text-bold
-            %td Team name
-            %td total Match points
-            %td total board points
+      = render partial: 'results_by_match'
 
-          - @teams.each do |team|                
-            %tr.info              
-              %td= team.name
-              %td= hypen(team.match_points)
-              %td= hypen(team.board_points)
-        
+      = render partial: 'points_table'
+
       .well.white-bg
         %b.text-uppercase  Results by Players
         %br
