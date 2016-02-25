@@ -5,45 +5,25 @@
 
       = render partial: 'points_table'
 
-      .well.text-uppercase 
-        %b Results by Players
-      .col-md-12
-        - @team.each do |team|
-          .col-md-4
-            %table.table.table-hover.table-striped
-              %tr.info
-                %th.text-center{:colspan =>"3"}
-                  = team.name.upcase
-                  (Owners)
-              - if team.players.present?
-                - index = 0
-                - team.players.each do |player|
-                  - if player.score == 0 
-                    - index = index + 1
-                    %tr.warning
-                      %td= index
-                      %td= player.name.capitalize
-                      %td.text-right
-                        = player.matches.count                    
-              %tr.info
-                %th.text-center{:colspan =>"3"}
-                  = team.name.upcase
-                  (Players)
-              - if team.players.present?
-                - index = 0
-                - team.players.each do |player|
-                  - if player.score != 0
-                    - index = index + 1
-                    %tr.warning
-                      %td= index
-                      %td= player.name.capitalize
-                      %td.text-right
-                        = player.matches.count
-              - else
-                %tr.danger
-                  %td.text-center
-                    No Players to display
-              %tr.info
-                %th{:colspan =>"3"}              
-
-        .clearfix
+      .well.white-bg
+        %b.text-uppercase  Results by Players
+        %br
+        %br
+        %table.table.table-hover.table-striped
+          %tr.info
+            %th.text-left Name
+            %th.text-right Playing count
+            %th.text-right Queen count
+            %th.text-right Own Coin count
+            %th.text-right Opponent Coin count
+            %th.text-right Dues/Penalties
+            %th.text-right Player score
+          - @players.each do |player|
+            %tr.warning
+              %td= player.name.capitalize
+              %td.text-center= hypen(player.matches_count)
+              %td.text-center= hypen(player.queen_count)
+              %td.text-center= hypen(player.coin_count)
+              %td.text-center= hypen(player.op_coin_count)
+              %td.text-center= hypen(player.due_count)
+              %td.text-center= hypen(player.player_score)

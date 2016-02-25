@@ -1,6 +1,6 @@
 class Match < ActiveRecord::Base
-  has_many :players,  :through => :match_player
   has_many :match_players, dependent: :destroy
+  has_many :players,  :through => :match_player
 
   belongs_to :team1, :class_name => 'Team', :foreign_key => 'team1_id'
   belongs_to :team2, :class_name => 'Team', :foreign_key => 'team2_id'  
@@ -32,9 +32,5 @@ class Match < ActiveRecord::Base
     player = self.match_players[3].player
     player if player.team == self.team2
   end
-
-  # def queen_holder
-  #   Player.find(self.queen_player_id) || ""
-  # end
 
 end

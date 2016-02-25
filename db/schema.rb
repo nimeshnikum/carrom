@@ -19,8 +19,12 @@ ActiveRecord::Schema.define(version: 20160225073615) do
   create_table "match_players", force: :cascade do |t|
     t.integer  "match_id"
     t.integer  "player_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "queen_pocket",   default: false
+    t.integer  "coin_count",     default: 0
+    t.integer  "opp_coin_count", default: 0
+    t.integer  "due_count",      default: 0
   end
 
   create_table "matches", force: :cascade do |t|
@@ -33,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160225073615) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.text     "comments"
+    t.integer  "board_points"
   end
 
   create_table "players", force: :cascade do |t|

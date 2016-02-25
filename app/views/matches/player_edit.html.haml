@@ -1,0 +1,66 @@
+.well.text-uppercase Update Player Score
+
+%table.table.white-bg  
+  %thead
+    %tr
+      %th(colspan="5")
+        Match 
+        = @match.match_no
+        \-
+        = @match.team1.name
+        Vs
+        = @match.team2.name
+        (
+        = @match.match_date
+        )
+    %tr.info
+      %th Player name 
+      %th Coin count
+      %th Opp coin count
+      %th.text-center Dues count
+      %th.text-center Queen pocket
+  %tbody
+    = form_for :match do |f|
+      %tr
+        %td= @match.player_1.try(:name)
+        %td
+          = select_tag(:coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td
+          = select_tag(:opp_coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td
+          = select_tag(:dues_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td.text-center= radio_button_tag 'queen_pocket', 'yes'
+          
+      %tr
+        %td= @match.player_2.try(:name)
+        %td
+          = select_tag(:coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td
+          = select_tag(:opp_coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td
+          = select_tag(:dues_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"}) 
+        %td.text-center= radio_button_tag 'queen_pocket', 'yes'
+
+      %tr
+        %td= @match.player_3.try(:name)
+        %td
+          = select_tag(:coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td
+          = select_tag(:opp_coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td
+          = select_tag(:dues_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td.text-center= radio_button_tag 'queen_pocket', 'yes'
+      %tr
+        %td= @match.player_4.try(:name)
+        %td
+          = select_tag(:coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td
+          = select_tag(:opp_coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td
+          = select_tag(:dues_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+        %td.text-center= radio_button_tag 'queen_pocket', 'yes'
+      %tr
+        %td
+          = f.submit 'Update'
+
+= link_to 'Back', matches_path
