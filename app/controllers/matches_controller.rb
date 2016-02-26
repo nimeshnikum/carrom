@@ -47,7 +47,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.update_attributes(
           :winning_team_id => params["match"]["winning_team"], 
-          :queen_player_id => params["match"]["queen_player"],
+          :queen_player_id => params["match"]["queen_holder"],
           :board_points => params["match"]["board_points"])
         format.html { redirect_to matches_path, notice: 'Match was successfully updated.' }
         format.json { head :no_content }
