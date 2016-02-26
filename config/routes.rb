@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :players
   resources :teams
   resources :matches do
-    get 'player_edit', to: 'matches#player_edit', as: 'player_edit'
+    get 'player_edit', to: 'matches#player_edit'
+    post 'player_update', to: 'matches#player_update'
   end
 
   get 'show_player', to: 'home#show_player', as: 'show_player'

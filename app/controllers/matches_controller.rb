@@ -62,6 +62,35 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:match_id])
   end
 
+  def player_update
+    @match = Match.find(params[:match_id])
+    @player1 = MatchPlayer.where("player_id = ? AND match_id = ?", params["player1"]["id"], @match.id).first
+    @player2 = MatchPlayer.where("player_id = ? AND match_id = ?", params["player2"]["id"], @match.id).first
+    @player3 = MatchPlayer.where("player_id = ? AND match_id = ?", params["player3"]["id"], @match.id).first
+    @player4 = MatchPlayer.where("player_id = ? AND match_id = ?", params["player4"]["id"], @match.id).first
+
+    @player1.update_attributes(
+      :coin_count => params["player1"]["coin_count"], 
+      :opp_coin_count => params["player1"]["opp_coin_count"],
+      :due_count => params["player1"]["dues_count"],
+      )
+    @player2.update_attributes(
+      :coin_count => params["player2"]["coin_count"], 
+      :opp_coin_count => params["player2"]["opp_coin_count"],
+      :due_count => params["player2"]["dues_count"],
+      )
+    @player3.update_attributes(
+      :coin_count => params["player3"]["coin_count"], 
+      :opp_coin_count => params["player3"]["opp_coin_count"],
+      :due_count => params["player3"]["dues_count"],
+      )
+    @player4.update_attributes(
+      :coin_count => params["player4"]["coin_count"], 
+      :opp_coin_count => params["player4"]["opp_coin_count"],
+      :due_count => params["player4"]["dues_count"],
+      )
+    redirect_to matches_path
+  end
 
   # DELETE /matches/1
   # DELETE /matches/1.json

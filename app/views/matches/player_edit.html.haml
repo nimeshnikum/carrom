@@ -20,45 +20,50 @@
       %th.text-center Dues count
       %th.text-center Queen pocket
   %tbody
-    = form_for :match do |f|
+    = form_for :match, :url => match_player_update_path do |f|
       %tr
         %td= @match.player_1.try(:name)
         %td
-          = select_tag(:coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = select_tag("player1[coin_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
         %td
-          = select_tag(:opp_coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = select_tag("player1[opp_coin_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
         %td
-          = select_tag(:dues_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
-        %td.text-center= radio_button_tag 'queen_pocket', 'yes'
+          = select_tag("player1[dues_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = hidden_field("player1", "id", :value => @match.player_1.id)
+        %td.text-center= radio_button_tag 'player1[queen_pocket]', 'yes'
           
       %tr
         %td= @match.player_2.try(:name)
         %td
-          = select_tag(:coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = select_tag("player2[coin_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
         %td
-          = select_tag(:opp_coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = select_tag("player2[opp_coin_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
         %td
-          = select_tag(:dues_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"}) 
-        %td.text-center= radio_button_tag 'queen_pocket', 'yes'
+          = select_tag("player2[dues_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = hidden_field("player2", "id", :value => @match.player_2.id)
+        %td.text-center= radio_button_tag 'player2[queen_pocket]', 'yes'
 
       %tr
         %td= @match.player_3.try(:name)
         %td
-          = select_tag(:coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = select_tag("player3[coin_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
         %td
-          = select_tag(:opp_coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = select_tag("player3[opp_coin_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
         %td
-          = select_tag(:dues_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
-        %td.text-center= radio_button_tag 'queen_pocket', 'yes'
+          = select_tag("player3[dues_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = hidden_field("player3", "id", :value => @match.player_3.id)
+        %td.text-center= radio_button_tag 'player3[queen_pocket]', 'yes'
+
       %tr
         %td= @match.player_4.try(:name)
         %td
-          = select_tag(:coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = select_tag("player4[coin_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
         %td
-          = select_tag(:opp_coin_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = select_tag("player4[opp_coin_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
         %td
-          = select_tag(:dues_count,  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
-        %td.text-center= radio_button_tag 'queen_pocket', 'yes'
+          = select_tag("player4[dues_count]",  options_for_select([*0..12].map {|p| p }), {:class => "form-control"})
+          = hidden_field("player4", "id", :value => @match.player_4.id)
+        %td.text-center= radio_button_tag 'player4[queen_pocket]', 'yes'
       %tr
         %td
           = f.submit 'Update'
