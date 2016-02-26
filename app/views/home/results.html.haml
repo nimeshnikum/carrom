@@ -1,29 +1,8 @@
 .container
   .row
     .col-md-12
-      = render partial: 'results_by_match'
-
       = render partial: 'points_table'
 
-      .well.white-bg
-        %b.text-uppercase  Results by Players
-        %br
-        %br
-        %table.table.table-hover.table-striped
-          %tr.info.strong
-            %th.text-left Name
-            %th.text-right Playing count
-            %th.text-right Queen count
-            %th.text-right Own Coin count
-            %th.text-right Opponent Coin count
-            %th.text-right Dues/Penalties
-            %th.text-right Player score
-          - @players.each do |player|
-            %tr.warning
-              %td= player.name.capitalize
-              %td.text-center= hypen(player.matches_count)
-              %td.text-center= hypen(player.queen_count)
-              %td.text-center= hypen(player.coin_count)
-              %td.text-center= hypen(player.op_coin_count)
-              %td.text-center= hypen(player.due_count)
-              %td.text-center= hypen(player.player_score)
+      = render partial: 'results_by_players'
+
+      = render partial: 'results_by_match'

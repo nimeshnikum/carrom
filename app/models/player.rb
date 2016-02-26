@@ -21,18 +21,21 @@ class Player < ActiveRecord::Base
   end
 
   def coin_count
-    0
+    matches = MatchPlayer.where(player_id: self.id)
+    matches.map { |x| x.coin_count.to_i }.sum
   end
 
-  def op_coin_count 
-    0
+  def opp_coin_count 
+    matches = MatchPlayer.where(player_id: self.id)
+    matches.map { |x| x.opp_coin_count.to_i }.sum
   end
 
   def due_count
-    0
+    matches = MatchPlayer.where(player_id: self.id)
+    matches.map { |x| x.due_count.to_i }.sum
   end
 
   def player_score
-    0
+    (coin_count + (queen_count*3)) - (opp_coin_count + due_count)
   end
 end

@@ -1,0 +1,24 @@
+.well.white-bg
+  %b.text-uppercase  Results by Players
+  %br
+  %br
+  %table.table.table-hover.table-striped
+    %tr.info.strong
+      %th.text-left Name
+      %th.text-left Team name
+      %th.text-right Playing count
+      %th.text-right Queen count
+      %th.text-right Own Coin count
+      %th.text-right Opponent Coin count
+      %th.text-right Dues/Penalties
+      %th.text-right Player score
+    - @players.each do |player|
+      %tr.warning
+        %td= player.name.capitalize
+        %td.text-left= player.team.name
+        %td.text-center= hypen(player.matches_count)
+        %td.text-center= hypen(player.queen_count)
+        %td.text-center= hypen(player.coin_count)
+        %td.text-center= hypen(player.opp_coin_count)
+        %td.text-center= hypen(player.due_count)
+        %td.text-center= hypen(player.player_score)
