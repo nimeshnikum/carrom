@@ -16,10 +16,10 @@
     - @teams.each do |team|                
       %tr             
         %td= team.name
-        %td= team.matches.count
-        %td= team.won_matches.count
-        %td= team.lost_matches.count
-        %td= team.win_points
-        %td= team.queen_points
-        %td= team.match_points
-        %td= team.board_points
+        %td= hypen(team.matches.count)
+        %td= hypen(team.won_matches.count)
+        %td= hypen(team.lost_matches.count)
+        %td= hypen(team.win_points)
+        %td= hypen(team.queen_points)
+        %td= hypen(team.match_points)
+        %td= hypen(team.board_points)
