@@ -2,6 +2,41 @@
 
 %table.table.white-bg  
   %thead
+    %tr.info
+      %th Player name 
+      %th Coin count
+      %th Opp coin count
+      %th.text-center Dues count
+      %th.text-center Queen pocket
+  %tbody
+    = form_for :match, :url => match_player_update_path do |f|
+      %tr
+        %td= @match.player_1.try(:name)
+        %td= @match.player_1.try(:coin_count)
+        %td= @match.player_1.try(:opp_coin_count)          
+        %td= @match.player_1.try(:due_count)
+        %td= @match.player_1.try(:queen_pocket)
+      %tr
+        %td= @match.player_2.try(:name)
+        %td= @match.player_2.try(:coin_count)
+        %td= @match.player_2.try(:opp_coin_count)          
+        %td= @match.player_2.try(:due_count)
+        %td= @match.player_2.try(:queen_pocket)
+      %tr
+        %td= @match.player_3.try(:name)
+        %td= @match.player_3.try(:coin_count)
+        %td= @match.player_3.try(:opp_coin_count)          
+        %td= @match.player_3.try(:due_count)
+        %td= @match.player_3.try(:queen_pocket)
+      %tr
+        %td= @match.player_4.try(:name)
+        %td= @match.player_4.try(:coin_count)
+        %td= @match.player_4.try(:opp_coin_count)          
+        %td= @match.player_4.try(:due_count)
+        %td= @match.player_4.try(:queen_pocket)
+
+%table.table.white-bg  
+  %thead
     %tr
       %th(colspan="5")
         Match 

@@ -89,7 +89,7 @@ class MatchesController < ApplicationController
       :opp_coin_count => params["player4"]["opp_coin_count"],
       :due_count => params["player4"]["dues_count"],
       )
-    redirect_to matches_path
+    redirect_to match_player_edit_path(@match)
   end
 
   # DELETE /matches/1
