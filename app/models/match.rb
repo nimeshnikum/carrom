@@ -9,28 +9,15 @@ class Match < ActiveRecord::Base
 
   attr_accessor :player1, :player2, :player3, :player4
 
+  scope :played, -> { where("winning_team_id IS NOT NULL") }
+
   def teams
     [self.team1 , self.team2]
   end
 
-  def player_1
-    player = self.match_players[0].player
-    player if player.team == self.team1
+  4.times do |i|
+    define_method("player_#{i+1}".to_sym) do # player_1, player_2, player_3, player_4
+      self.match_players[i].player
+    end
   end
-
-  def player_2
-    player = self.match_players[1].player
-    player if player.team == self.team1
-  end
-
-  def player_3
-    player = self.match_players[2].player
-    player if player.team == self.team2
-  end
-
-  def player_4
-    player = self.match_players[3].player
-    player if player.team == self.team2
-  end
-
 end

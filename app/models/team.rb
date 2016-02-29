@@ -9,7 +9,7 @@ class Team < ActiveRecord::Base
   end
 
   def lost_matches
-  	matches - won_matches
+  	matches.played - won_matches
   end
 
   def win_points
