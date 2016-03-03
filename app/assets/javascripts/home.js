@@ -20,7 +20,12 @@ $( document ).ready(function() {
         };
     });
 
-    $("#myTable").tablesorter({
+    $("#sort_table").tablesorter({
         sortList: [[7,1]]
+    });
+
+    $('#reset_sort').click(function(){
+        $('#sort_table').trigger('sortReset');
+        return false;
     });
 });

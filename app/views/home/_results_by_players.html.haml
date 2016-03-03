@@ -2,8 +2,9 @@
   %b.text-uppercase  Results by Players
   %br
   %br
-
-  %table.table.table-hover.table-stripde#myTable.tablesorter.tablesorter-blue
+  %i Note: To sort multiple columns simultaneously, hold down the Shift key and click a second, third or even fourth column in the header!
+  .btn.btn-primary.btn-xs#reset_sort.pull-right Reset sort
+  %table.table.table-hover.table-stripde#sort_table.tablesorter.tablesorter-blue
     %thead
       %tr.info.strong
         %th.text-left Name
@@ -18,7 +19,7 @@
     - @players.each do |player|
       %tr.warning
         %td= player.name.capitalize
-        %td.text-left= player.team.name
+        %td= player.team.name
         %td.text-center= player.matches_count
         %td.text-center= player.queen_count
         %td.text-center= player.coin_count

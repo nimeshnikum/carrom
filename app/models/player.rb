@@ -36,6 +36,6 @@ class Player < ActiveRecord::Base
   end
 
   def player_score
-    (coin_count + (queen_count*3)) - (opp_coin_count + due_count)
+    (coin_count + (queen_count*3)) - (opp_coin_count/2 + due_count).round
   end
 end
