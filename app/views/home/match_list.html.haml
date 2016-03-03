@@ -3,9 +3,9 @@
     .col-md-12
       %table.table.table-hover.text-center
         - @matches.each.with_index do |match, index|          
-          - if [0,3,6,9,12,15,18,21,24].include?(index)
+          - if [0,3,6,9,12,15,18,21].include?(index)
             - if index == 18
-              %tr.warning
+              %tr.danger
                 %td(colspan="6")
                   %b FINALS
               %tr.info
