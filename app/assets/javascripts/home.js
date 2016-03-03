@@ -19,5 +19,8 @@ $( document ).ready(function() {
             $('.player-content').html(data.html)
         };
     });
-    
+
+    $("#myTable").tablesorter({
+        sortList: [[7,1]]
+    });
 });
