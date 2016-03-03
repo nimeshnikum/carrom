@@ -3,10 +3,18 @@
     .col-md-12
       %table.table.table-hover.text-center
         - @matches.each.with_index do |match, index|          
-          - if [0,3,6,9,12,15].include?(index)
-            %tr.info
-              %td(colspan="6")
-                %b= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
+          - if [0,3,6,9,12,15,18,21,24].include?(index)
+            - if index == 18
+              %tr.warning
+                %td(colspan="6")
+                  %b FINALS
+              %tr.info
+                %td(colspan="6")
+                  %b= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
+            - else
+              %tr.info
+                %td(colspan="6")
+                  %b= Date.strptime(match.match_date, '%m/%d/%Y').strftime('%A %d-%m-%Y')
           %tr.warning
             %td
               Match
