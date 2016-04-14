@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get 'results', to: 'home#results', as: 'results'
   get 'team_list', to: 'home#team_list', as: 'team_list'
   get 'rules', to: 'home#rules', as: 'rules'
+  get 'auction', to: 'home#auction', as: 'auction'
+  put 'assign_player/:id', to: 'home#assign_player', as: 'assign_player'
   get 'score_board', to: 'home#score_board', as: 'score_board'
 end

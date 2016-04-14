@@ -1,15 +1,16 @@
 class HomeController < ApplicationController
   def index
-    
+    @matches = Match.all
   end
 
   def team_list
-    #@available_players = Player.available_players
+    @matches = Match.all
+    @available_players = Player.available_players
     @team = Team.order('id ASC')
   end
 
   def show_player
-    @team = Team.order('id ASC')
+    @team = Team.order('id ASC')    
     @player = Player.get_random_player
     render_success("show_player", player: @player, team: @team)
   end

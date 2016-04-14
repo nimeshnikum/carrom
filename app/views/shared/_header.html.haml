@@ -7,9 +7,18 @@
 
     .pull-right
       .menu{:style =>"margin-top: 7px;"}
-        - if !(params[:controller] == "home" && params[:action] == "index")
-          = link_to "Fixtures", match_list_path, :class => "btn btn-primary"    
-          = link_to "Results", results_path, :class => "btn btn-primary"
-          = link_to "Team list", team_list_path, :class => "btn btn-primary"
-          = link_to "Rules", rules_path, :class => "btn btn-primary"
+        - if (params[:controller] == "home" && params[:action] == "team_list") && @matches.count.zero?
+          = link_to "Auction", "#", :class => "btn btn-primary available_players"       
+          .btn.btn-primary
+            Available Players
+            %b
+              (
+              = @available_players
+              )
+        - else
+          - if !(params[:controller] == "home" && params[:action] == "index")
+            = link_to "Fixtures", match_list_path, :class => "btn btn-primary"    
+            = link_to "Results", results_path, :class => "btn btn-primary"
+            = link_to "Team list", team_list_path, :class => "btn btn-primary"
+            = link_to "Rules", rules_path, :class => "btn btn-primary"
 
