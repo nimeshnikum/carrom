@@ -6,11 +6,11 @@
           %tr.info
             %th.text-center{:colspan =>"3"}
               = team.name.upcase
-              (Owners)
+              (Captain)
           - if team.players.present?
             - index = 0
             - team.players.each do |player|
-              - if player.score == 0 
+              - if player.score == 300 
                 - index = index + 1
                 %tr.warning
                   %td= index
