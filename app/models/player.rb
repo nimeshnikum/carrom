@@ -1,11 +1,16 @@
 class Player < ActiveRecord::Base
-  belongs_to :team
+  has_many :team_players
+  has_many :tournament_teams, through: :team_players
   has_many :queens, :class_name => 'Match', :foreign_key => 'queen_player_id'
-  has_many :matches,  :through => :match_players
-  has_many :match_players, dependent: :destroy
+  # has_many :matches,  :through => :match_players
+  # has_many :match_players, dependent: :destroy
 
-  def self.available_players
-    Player.where("team_id" => nil).count
+  validates :name, presence: true, uniqueness: true
+
+  scope :active, -> { where(active: true) }
+
+  def self.available_players(tournament)
+    active - tournament.players
   end
 
   def self.get_random_player

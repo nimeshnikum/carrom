@@ -1,8 +1,10 @@
 class Team < ActiveRecord::Base
-  has_many :players
+  has_many :tournament_teams
+  has_many :tournaments, -> { uniq }, through: :tournament_teams
+  # has_many :players
   has_many :won_matches, class_name: 'Match', foreign_key: 'winning_team_id'
 
-  has_one :team
+  # has_one :team
 
   def matches
   	Match.where("team1_id = ? OR team2_id = ?", self.id, self.id)

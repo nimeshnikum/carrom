@@ -1,0 +1,20 @@
+= form_for @team_player, url: form_submit_path do |f|
+  - if @team_player.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@team_player.errors.count, "error")} prohibited this player from being saved:"
+      %ul
+        - @team_player.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :player_id
+    - if @team_player.new_record?      
+      = f.select :player_id, collection_for_players(@available_players)
+    - else
+      = @team_player.player_name
+    
+  .form-group
+    = f.label :buy_price
+    = f.text_field :buy_price
+  .form-group
+    = f.submit 'Save'

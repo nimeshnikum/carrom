@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
   root 'home#index'
+
+
+  namespace :tournaments do
+    resources :teams do
+      resources :team_players do
+      end
+
+      collection do
+        post :assign
+      end
+    end
+  end
+
+  resources :tournaments do
+    collection do
+      post :set_current
+    end
+  end
+
+
   resources :players
   resources :teams
   resources :matches do

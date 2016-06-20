@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tournament.name
+%p
+  %b Image:
+  = @tournament.try(:image)
+
+= link_to 'Edit', edit_tournament_path(@tournament)
+\|
+= link_to 'Assign Teams', tournaments_teams_path
+\|
+= link_to 'Back', tournaments_path

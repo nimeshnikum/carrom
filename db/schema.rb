@@ -11,20 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225073615) do
+ActiveRecord::Schema.define(version: 20160615094109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "match_players", force: :cascade do |t|
-    t.integer  "match_id"
-    t.integer  "player_id"
+    t.integer  "match_team_id"
+    t.integer  "team_player_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.boolean  "queen_pocket",   default: false
     t.integer  "coin_count",     default: 0
     t.integer  "opp_coin_count", default: 0
     t.integer  "due_count",      default: 0
+  end
+
+  create_table "match_teams", force: :cascade do |t|
+    t.integer  "match_id"
+    t.integer  "tournament_team_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "matches", force: :cascade do |t|
@@ -36,8 +43,8 @@ ActiveRecord::Schema.define(version: 20160225073615) do
     t.integer  "queen_player_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.text     "comments"
     t.integer  "board_points"
+    t.string   "comments"
   end
 
   create_table "players", force: :cascade do |t|
@@ -45,8 +52,17 @@ ActiveRecord::Schema.define(version: 20160225073615) do
     t.integer  "score"
     t.integer  "team_id"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "active",     default: true
+  end
+
+  create_table "team_players", force: :cascade do |t|
+    t.integer  "tournament_team_id"
+    t.integer  "player_id"
+    t.integer  "buy_price"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -54,6 +70,21 @@ ActiveRecord::Schema.define(version: 20160225073615) do
     t.integer  "score",      default: 1500
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "tournament_teams", force: :cascade do |t|
+    t.integer  "tournament_id"
+    t.integer  "team_id"
+    t.integer  "total_budget"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

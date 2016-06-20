@@ -7,6 +7,11 @@
 
     .pull-right
       .menu{:style =>"margin-top: 7px;"}
+        =form_for :tournament, url: set_current_tournaments_path, method: :post do |f|
+          .form-group
+            = f.select :id, collection_for_tournaments, {selected: current_tournament.id}
+            = f.submit 'Go'
+
         - if (params[:controller] == "home" && params[:action] == "team_list") && @matches.count.zero?
           = link_to "Auction", "#", :class => "btn btn-primary available_players"       
           .btn.btn-primary

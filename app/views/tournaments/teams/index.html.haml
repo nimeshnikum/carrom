@@ -1,0 +1,28 @@
+.well.text-uppercase Assigned teams
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Total Budget
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tournament_teams.each do |team|
+      %tr
+        %td= team.team_name
+        %td= team.total_budget
+        %td= link_to 'Edit', '#'#, edit_tournaments_team_path(team)
+        %td= link_to 'Players', tournaments_team_team_players_path(team)
+        %td= link_to 'Destroy', tournaments_team_path(team), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= form_for :tournament_team, url: assign_tournaments_teams_path, method: :post do |f|
+  .form-group
+    = f.label :Teams
+    = f.select :team_ids, collection_for_teams, {}, {multiple: true}
+  .actions
+    = f.submit 'Assign'

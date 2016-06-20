@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @players = Player.all
-    @available_players = Player.available_players
+    # @available_players = Player.available_players
   end
 
   # GET /players/1
@@ -16,7 +16,7 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
-    @available_players = Player.available_players
+    # @available_players = Player.available_players
   end
 
   # GET /players/1/edit
@@ -71,6 +71,6 @@ class PlayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:name, :score, :team_id, :image)
+      params.require(:player).permit(:name, :image)
     end
 end

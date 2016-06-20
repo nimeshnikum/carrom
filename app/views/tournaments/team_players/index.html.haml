@@ -1,0 +1,21 @@
+.well.text-uppercase Players #{for_team_display(@tournament_team.team_name)}
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Buy Price
+      %th
+      %th
+
+  %tbody
+    - @team_players.each do |team_player|
+      %tr
+        %td= team_player.player_name
+        %td= team_player.buy_price
+        %td= link_to 'Edit', edit_tournaments_team_team_player_path(@tournament_team, team_player)
+        %td= link_to 'Destroy', tournaments_team_team_player_path(@tournament_team, team_player), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Assign New Player', new_tournaments_team_team_player_path(@tournament_team)

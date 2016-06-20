@@ -1,0 +1,6 @@
+.well.text-uppercase New player #{for_team_display(@tournament_team.team_name)}
+
+= render 'form'
+
+%br
+= link_to 'Back', tournaments_team_team_players_path(@tournament_team)

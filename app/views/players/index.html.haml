@@ -4,8 +4,6 @@
   %thead
     %tr
       %th Name
-      %th Score
-      %th Team
       %th Image
       %th
       %th
@@ -15,8 +13,6 @@
     - @players.each do |player|
       %tr
         %td= player.name
-        %td= player.score
-        %td= player.team_id
         %td= player.image
         %td= link_to 'Show', player
         %td= link_to 'Edit', edit_player_path(player)

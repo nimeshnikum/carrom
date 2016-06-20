@@ -4,7 +4,6 @@
   %thead
     %tr
       %th Name
-      %th Score
       %th
       %th
       %th
@@ -13,7 +12,6 @@
     - @teams.each do |team|
       %tr
         %td= team.name
-        %td= team.score
         %td= link_to 'Show', team
         %td= link_to 'Edit', edit_team_path(team)
         %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
